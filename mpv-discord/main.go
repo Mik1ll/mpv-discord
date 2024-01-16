@@ -45,7 +45,8 @@ func getActivity() (activity discordrpc.Activity, err error) {
 
 	// Details
 	activity.Details = getPropertyString("media-title")
-	metaTitle := getProperty("metadata/by-key/Title")
+	playlistPos := getPropertyString("playlist-pos")
+	metaTitle := getProperty("playlist/" + playlistPos + "/title")
 	metaArtist := getProperty("metadata/by-key/Artist")
 	metaAlbum := getProperty("metadata/by-key/Album")
 	if metaTitle != nil {
